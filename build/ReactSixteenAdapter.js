@@ -60,6 +60,10 @@ var Mode = 11;
 var ContextConsumer = 12;
 var ContextProvider = 13;
 
+function ensureKeyOrUndefined(key) {
+  return key || (key === '' ? '' : undefined);
+}
+
 function nodeAndSiblingsArray(nodeWithSibling) {
   var array = [];
   var node = nodeWithSibling;
@@ -109,7 +113,7 @@ function toTree(vnode) {
         nodeType: 'class',
         type: node.type,
         props: (0, _object2['default'])({}, node.memoizedProps),
-        key: (0, _enzymeAdapterUtils.ensureKeyOrUndefined)(node.key),
+        key: ensureKeyOrUndefined(node.key),
         ref: node.ref,
         instance: node.stateNode,
         rendered: childrenToTree(node.child)
@@ -120,7 +124,7 @@ function toTree(vnode) {
         nodeType: 'function',
         type: node.type,
         props: (0, _object2['default'])({}, node.memoizedProps),
-        key: (0, _enzymeAdapterUtils.ensureKeyOrUndefined)(node.key),
+        key: ensureKeyOrUndefined(node.key),
         ref: node.ref,
         instance: null,
         rendered: childrenToTree(node.child)
@@ -136,7 +140,7 @@ function toTree(vnode) {
           nodeType: 'host',
           type: node.type,
           props: (0, _object2['default'])({}, node.memoizedProps),
-          key: (0, _enzymeAdapterUtils.ensureKeyOrUndefined)(node.key),
+          key: ensureKeyOrUndefined(node.key),
           ref: node.ref,
           instance: node.stateNode,
           rendered: renderedNodes
@@ -314,7 +318,7 @@ var ReactSixteenAdapter = function (_EnzymeAdapter) {
                 nodeType: (0, _enzymeAdapterUtils.nodeTypeFromType)(cachedNode.type),
                 type: cachedNode.type,
                 props: cachedNode.props,
-                key: (0, _enzymeAdapterUtils.ensureKeyOrUndefined)(cachedNode.key),
+                key: ensureKeyOrUndefined(cachedNode.key),
                 ref: cachedNode.ref,
                 instance: renderer._instance,
                 rendered: Array.isArray(output) ? flatten(output).map(_enzymeAdapterUtils.elementToTree) : (0, _enzymeAdapterUtils.elementToTree)(output)
