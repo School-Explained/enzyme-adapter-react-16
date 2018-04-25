@@ -12,5 +12,7 @@ This repo is to maintain the react 16 adapter up to date, in order to avoid any 
 For full enzyme documentation please visit [enzyme official repo](https://github.com/airbnb/enzyme/)
 
 
-To install this versione with yarn run:
-`yarn add git@github.com:School-Explained/enzyme-adapter-react-16.git`
+To install this version run either:
+`yarn add git://github.com/School-Explained/enzyme-adapter-react-16.git`
+or
+`npm install git://github.com/School-Explained/enzyme-adapter-react-16.git`
