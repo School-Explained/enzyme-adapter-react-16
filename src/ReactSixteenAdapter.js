@@ -18,7 +18,6 @@ import {
   createRenderWrapper,
   createMountWrapper,
   propsWithKeysAndRef,
-  ensureKeyOrUndefined,
 } from 'enzyme-adapter-utils';
 import { findCurrentFiberUsingSlowPath } from 'react-reconciler/reflection';
 
@@ -32,6 +31,10 @@ const HostText = 6;
 const Mode = 11;
 const ContextConsumer = 12;
 const ContextProvider = 13;
+
+function ensureKeyOrUndefined(key) {
+  return key || (key === '' ? '' : undefined);
+}
 
 function nodeAndSiblingsArray(nodeWithSibling) {
   const array = [];
